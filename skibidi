@@ -1,0 +1,22 @@
+local function GetGitSound(GithubSnd,SoundName) --idk what is this for anyway
+local url=GithubSnd
+if not isfile(SoundName..".mp3") then
+writefile(SoundName..".mp3", game:HttpGet(url))
+end
+local sound=Instance.new("Sound")
+sound.SoundId=(getcustomasset or getsynasset)(SoundName..".mp3")
+return sound
+end
+local Clock = GetGitSound("https://github.com/AeryAlex/Sounds/blob/main/y2mate.com%20-%20god%20human%20six%20ream%20gun%20sound%20effect.mp3?raw=true","Sixth Realm Gun")
+--first: put github firstly and do mp3?raw=true and second do ,"YOURSOUNDNAME" and don't include space it'll break thats all
+
+Clock.Parent = workspace
+
+Clock.Volume = 5
+Clock.TimePosition = 1.4
+
+Clock:Play()
+
+task.delay(.9, function()
+Clock:Stop()
+end)
